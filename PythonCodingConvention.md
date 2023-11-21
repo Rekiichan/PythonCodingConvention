@@ -1,14 +1,22 @@
 # PythonCodingConvention
 Main Style: PEP 8.
 
+## Indent
+Sử dụng 4 white-space.
+
 ## Comment code
-- Đối với function, comment tổng quan về function ngay dưới tên hàm
+- Comment ngay trên dòng code muốn mô tả, sau dấu `#` phải có 1 phím cách. 
+- Mỗi khi if else thì nên có ít nhất 1 dòng mô tả nếu điều kiện phức tạp
+``` python
+if __name__ == '__main__':
+    # Câu lệnh chỉ được thực thi khi file chứa nó được chạy chỉ định
+    print('Hello World!')
+```
+- Đối với function/class, comment tổng quan về function/class ngay dưới tên hàm, bao gồm mô tả chung của hàm, các parameter truyền vào kèm theo kiểu dữ liệu, dữ liệu và kiểu dữ liệu trả về, mô tả exception được raise (nếu có)
 
 ``` python
-  def connect_to_next_port(self, minimum: int) -> int:
-    """
-    Author: NhanDT
-    Description: Connects to the next available port.
+  def connect_to_next_port(minimum: int) -> int:
+    """ Connects to the next available port.
 
     Args:
       minimum: A port value greater or equal to 1024.
@@ -24,10 +32,12 @@ Main Style: PEP 8.
       # string's "Raises:" section because it is not appropriate to
       # guarantee this specific behavioral reaction to API misuse.
       raise ValueError(f'Min. port must be at least 1024, not {minimum}.')
+
     port = self._find_next_open_port(minimum)
     if port is None:
       raise ConnectionError(
           f'Could not connect to service on port {minimum} or higher.')
+
     assert port >= minimum, (
         f'Unexpected port {port} when minimum was {minimum}.')
     return port
@@ -38,9 +48,6 @@ Main Style: PEP 8.
 - Chỉ sử dụng ```import``` cho các packages và mô-đun, không sử dụng cho các lớp hoặc hàm cá nhân.
 - Import module sử dụng địa chỉ tuyệt đối của module.
 - Mỗi lệnh ```import``` chỉ được sử dụng để import một 1 module duy nhất 
-
-## Indent
-Sử dụng 4 white-space.
 
 ## Blank-line
 - Trong một file (module), phía trên và phía dưới (bao xung quanh) của phần định nghĩa function, class là 02 blank-line.
