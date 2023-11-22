@@ -7,7 +7,7 @@ Main Style: PEP 8.
 3. [Indent](#Indent)
 4. [Kích thước hàng](#Kích-thước-hàng)
 4. [Comment Code](#Comment-Code)
-6. [Import](#import)
+6. [Import](#Import)
 7. [Điều kiện](#điều-kiện)
 8. [Blank-line](#Blank-line)
 10. [Tài nguyên tham khảo](#tài-nguyên-tham-khảo)
