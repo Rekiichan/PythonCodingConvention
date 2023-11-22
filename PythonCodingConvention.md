@@ -1,8 +1,64 @@
 # PythonCodingConvention
 Main Style: PEP 8.
 
+## Mục lục
+1. [Kiểu dữ liệu](#Kiểu-dữ-liệu)
+2. [Tên Biến và Hàm cơ bản](#Tên-Biến-và-Hàm-cơ-bản)
+3. [Indent](#Indent)
+4. [Kích thước hàng](#Kích-thước-hàng)
+4. [Comment Code](#Comment-Code)
+6. [Import](#import)
+7. [Điều kiện](#điều-kiện)
+8. [Blank-line](#Blank-line)
+10. [Tài nguyên tham khảo](#tài-nguyên-tham-khảo)
+
+## Kiểu dữ liệu
+- Nên khai báo kiểu dữ liệu mỗi khi khởi tạo biến
+```
+# Không tốt
+x = 10  # int
+y = "hello"  # str
+
+# Tốt
+x: int = 10
+y: str = "hello"
+```
+
+## Tên Biến và Hàm cơ bản
+- Sử dụng chữ cái thường và gạch chân (_) để ngăn cách các từ trong tên biến và hàm.
+- Tránh sử dụng các tên ngắn và không rõ nghĩa như a, b, x.
+- Sử dụng tên biến mô tả chức năng của nó.
+```python 
+# Không tốt
+a = 10
+
+# Tốt
+total_count = 10
+```
 ## Indent
-Sử dụng 4 white-space.
+- Sử dụng 4 white-space.
+```python
+# Không tốt
+def example():
+∙∙print("Hello, World!")
+
+# Tốt
+def example():
+∙∙∙∙print("Hello, World!")
+```
+
+## Kích thước hàng
+- Duy trì độ dài hàng dưới 79 ký tự.
+- Đối với các dòng dài, hãy chia thành nhiều dòng với đủ thụt đầu dòng
+
+``` python
+# Không tốt
+sentence = "This is a very long sentence that goes beyond the recommended line length, and it's hard to read."
+
+# Tốt
+sentence = ("This is a very long sentence that goes beyond the recommended line length, "
+            "and it's much easier to read when split into multiple lines.")
+```
 
 ## Comment code
 - Comment ngay trên dòng code muốn mô tả, sau dấu `#` phải có 1 phím cách. 
@@ -49,6 +105,32 @@ if __name__ == '__main__':
 - Import module sử dụng địa chỉ tuyệt đối của module.
 - Mỗi lệnh ```import``` chỉ được sử dụng để import một 1 module duy nhất 
 
+```python
+# Không tốt
+from module1 import func1, func2
+from module2 import func3, func4
+
+# Tốt
+from module1 import func1
+from module1 import func2
+from module2 import func3
+from module2 import func4
+```
+
+## Điều kiện
+- Sử dụng dấu ngoặc đơn để bao quanh điều kiện.
+
+```python
+# Không tốt
+if x > 0 and y > 0:
+    print("Both x and y are positive.")
+
+# Tốt
+if (x > 0) and (y > 0):
+    print("Both x and y are positive.")
+
+```
+
 ## Blank-line
 - Trong một file (module), phía trên và phía dưới (bao xung quanh) của phần định nghĩa function, class là 02 blank-line.
 - Với các function được định nghĩa trong một class thì bao xung quanh của function là 01 blank-line.
@@ -81,6 +163,7 @@ def is_prime_optimal(number):
     return True
 ```
 
+## Tài nguyên tham khảo
 Ref: https://google.github.io/styleguide/pyguide.html#316-naming
 
 Tutorials write: https://www.makeareadme.com
