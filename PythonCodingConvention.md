@@ -6,10 +6,11 @@ Main Style: PEP 8.
 2. [Tên Biến và Hàm cơ bản](#Tên-Biến-và-Hàm-cơ-bản)
 3. [Indent](#Indent)
 4. [Kích thước hàng](#Kích-thước-hàng)
-4. [Comment Code](#Comment-Code)
-6. [Import](#Import)
-7. [Điều kiện](#điều-kiện)
-8. [Blank-line](#Blank-line)
+5. [Cách Đặt tên](#Cách-Đặt-tên)
+6. [Comment Code](#Comment-Code)
+7. [Import](#Import)
+8. [Điều kiện](#điều-kiện)
+9. [Blank-line](#Blank-line)
 10. [Tài nguyên tham khảo](#tài-nguyên-tham-khảo)
 
 ## Kiểu dữ liệu
@@ -28,6 +29,7 @@ y: str = "hello"
 - Sử dụng chữ cái thường và gạch chân (_) để ngăn cách các từ trong tên biến và hàm.
 - Tránh sử dụng các tên ngắn và không rõ nghĩa như a, b, x.
 - Sử dụng tên biến mô tả chức năng của nó.
+
 ```python 
 # Không tốt
 a = 10
@@ -35,6 +37,25 @@ a = 10
 # Tốt
 total_count = 10
 ```
+
+- Sử dụng kiểu hint cho tham số và giá trị trả về của hàm.
+``` python
+def divide(dividend: float, divisor: float) -> float:
+    """
+    Divide two numbers and return the result.
+
+    :param dividend: The number being divided.
+    :param divisor: The number dividing.
+    
+    :return: The result of the division.
+    """
+    if divisor == 0:
+        raise ValueError("Cannot divide by zero.")
+    
+    result: float = dividend / divisor
+    return result
+```
+
 ## Indent
 - Sử dụng 4 white-space.
 ```python
@@ -60,6 +81,15 @@ sentence = ("This is a very long sentence that goes beyond the recommended line 
             "and it's much easier to read when split into multiple lines.")
 ```
 
+## Cách Đặt tên
+- Class và Exception: CamelCase
+- Biến cục bộ và hàm: camel_case
+- Biến toàn cục và const: CAMEL_CASE
+- Parameter: 
+  - Sử dụng camel_case như biến cục bộ
+  - Sử dụng self nếu dùng instance methods
+  - Sử dụng cls nếu dùng class methods
+
 ## Comment code
 - Comment ngay trên dòng code muốn mô tả, sau dấu `#` phải có 1 phím cách. 
 - Mỗi khi if else thì nên có ít nhất 1 dòng mô tả nếu điều kiện phức tạp
@@ -69,7 +99,7 @@ if __name__ == '__main__':
     print('Hello World!')
 ```
 - Đối với function/class, comment tổng quan về function/class ngay dưới tên hàm, bao gồm mô tả chung của hàm, các parameter truyền vào kèm theo kiểu dữ liệu, dữ liệu và kiểu dữ liệu trả về, mô tả exception được raise (nếu có)
-
+- Sử dụng Docstrings extension cho việc auto-gen base comment body
 ``` python
   def connect_to_next_port(minimum: int) -> int:
     """ Connects to the next available port.
