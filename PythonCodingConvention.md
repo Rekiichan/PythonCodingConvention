@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
 ```
 
-## Imports
+## Import
 - Chỉ sử dụng ```import``` cho các packages và mô-đun, không sử dụng cho các lớp hoặc hàm cá nhân.
 - Import module sử dụng địa chỉ tuyệt đối của module.
 - Mỗi lệnh ```import``` chỉ được sử dụng để import một 1 module duy nhất 
